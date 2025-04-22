@@ -63,7 +63,7 @@ def get_data():
     while number != '1' and number != '2':
         print('Вы ввели неправиьное число!')
         time.sleep(2)
-        os.system('clear')
+        os.system('cls')
         print('''Выберите режим работы парсера:
              1 - собрать данные о всех имеющихся шинах
              2 - отобрать шины по параметрам''')
@@ -127,13 +127,13 @@ def get_data():
                         write_data(tyres)
 
         count += 1
-        os.system('clear')
+        os.system('cls')
         if number == '2':
             print(f'Диаметр шины: {tire_diameter}, Профиль шины: {tire_profile}, Ширина шины: {tire_width}\n')
         # print(time.time())
         print(f'Прогресс: {'{:.2f}'.format(count / page_count * 100).rjust(6)}% - {(int((count / page_count * 101) - 1) * '#') + ((100 - (int(count / page_count * 101))) * '_')}')
         print(f'Страниц обработано: {count}/{page_count}')
-        print('Количество проходов: ', count_2)
+        # print('Количество проходов: ', count_2)
 
     with open(f'tyres_{cur_time}.json', 'w', encoding='utf-8') as json_file:
         json.dump(all_cards_link, json_file, indent=4, ensure_ascii=False)
